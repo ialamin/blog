@@ -1,0 +1,22 @@
+{% import "macros.html" as macros %}
+{% extends "base.html" %}
+
+{% block content %}
+
+<form role="form" method="POST">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" name="title" placeholder="Entry title" required value="{{ entry.title}}">
+    </div>
+    <div class="form-group">
+        <label for="content">Content</label>
+        <textarea class="form-control" id="content" name="content" placeholder="Entry content" rows="20" required>{{entry.content}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+    <a href="/entry/{{ entry.id }}/delete" class="btn btn-info" role="button">Delete</a>
+
+</form>
+
+
+
+{% endblock %}
