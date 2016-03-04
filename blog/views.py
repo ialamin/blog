@@ -105,5 +105,14 @@ def delete_post(id):
     entry = session.query(Entry).get(id)
     session.delete(entry)
 
-    session.commit
+    session.commit()
     return redirect(url_for("entries"))
+
+
+@app.route("/logout")
+@login_required
+def logout():
+    
+    logout_user()
+    return redirect(request.args.get('next') or url_for("entries"))
+

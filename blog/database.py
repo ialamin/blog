@@ -24,7 +24,6 @@ class Entry(Base):
 
 
 
-
 class User(Base, UserMixin):
     __tablename__ = "users"
 
@@ -32,6 +31,8 @@ class User(Base, UserMixin):
     name = Column(String(128))
     email = Column(String(128), unique=True)
     password = Column(String(128))
+    
+    #relationship to entries = many entries/author
     entries = relationship("Entry", backref="author")
 
 
